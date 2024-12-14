@@ -11,7 +11,7 @@ This project analyzes arrest data in Chicago (2019–2022) to explore the potent
 
 ## Contributors  
 - **Ken Fukutomi**  
-  *University of Michigan, Bachelor's in Engineering & Science  
+  *University of Michigan, Bachelor's of Science  
 - **Benjamin Spilo**  
   *University of Michigan, Bachelor's in Science & Informatics*
 
