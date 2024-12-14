@@ -1,34 +1,72 @@
-## ****Predictive Policing and Crime Forecasting****
+# Predictive Policing and Crime Forecasting: A Data-Driven Approach  
 *Urban Informatics, Professor Xiaofan Liang*
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) 
+![R](https://img.shields.io/badge/r-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
 
-### Group Info
-- Ken Fukutomi (University of Michigan, B.Sc., Urban Tech + CS)
-- Benjamin Spilo (University of Michigan, B.Sc., Informatics)
-  
-# **Abstract** 
-This report provides a comprehensive analysis of all arrest types in Chicago for the year 2019-2022. The task presented a challenge in identifying a measure of criminality that is inherently subjective. Unlike burglaries, assaults, and violent crimes, which are often the result of civilian reports through 911 calls, arrests predominantly depend on the discretion of police officers. Our decision to focus on arrests was driven by the recognition of systemic bias and the disproportionate policing of communities with lower incomes and minority populations. The primary aim of this study is to develop a machine learning model capable of identifying potential hotspots for future arrests in Chicago. 
+## Overview  
+This project analyzes arrest data in Chicago (2019–2022) to explore the potential of machine learning models in predicting future arrest hotspots. The study critically examines the systemic biases in policing and proposes data-driven solutions to identify areas with heightened risks of future arrests. Our approach integrates historical crime data with neighborhood features such as socioeconomic factors, walkability, and transit accessibility.
 
-Resource:
-https://365datascience.com/tutorials/python-tutorials/predictive-model-python/
+---
 
-Assignment Info: https://xfliang.notion.site/Final-Proposal-e08b2c8a118d4fd19747bded1c87b7df
+## Contributors  
+- **Ken Fukutomi**  
+  *University of Michigan, Bachelor's in Engineering & Science  
+- **Benjamin Spilo**  
+  *University of Michigan, Bachelor's in Science & Informatics*
 
-# **Modeling/Analysis** 
+---
 
-![Image Alt text](/additional/kNearNeigh.gif)
+## Abstract  
+Arrests, unlike crime reports, often reflect systemic biases due to their dependence on police discretion. This project focuses on arrests as a measure of "criminality" while acknowledging the disproportionate policing of minority and low-income communities. Using machine learning, we aim to forecast future arrest hotspots in Chicago.  
 
-🔎 The first step involves collecting and preparing a dataset that includes historical crime data for different neighborhoods in Chicago. This dataset would also include features such as the walkability score of each neighborhood (which reflects how easy it is to accomplish daily errands on foot), transit accessibility (how easily residents can access public transportation), and various socioeconomic factors (like income levels, employment rates, educational attainment, etc.) Before applying the k-NN algorithm, it's crucial to select relevant features that are likely to influence crime rates. In this case, the features mentioned (walkability score, time, transit accessibility, and socioeconomic factors) are chosen because they are believed to have a significant impact on neighborhood safety and crime rates. For example, neighborhoods with high walkability and good transit accessibility might see different crime patterns than less accessible areas. Similarly, socioeconomic factors can significantly influence crime rates, with areas facing economic hardships often experiencing higher rates of crime.
+Our predictive model incorporates socioeconomic and infrastructural variables, such as walkability, transit accessibility, and income levels, to provide a nuanced understanding of neighborhood conditions influencing arrest trends.
 
-Q: *"What exactly does k-NN algorithm do?"* : So, the k-nearest neighbor algorithm works by classifying a data point based on how its neighbors are classified. In the context of crime prediction, the "data point" could be a specific neighborhood or a set of conditions within a neighborhood at a certain time. The algorithm looks at 'k' other neighborhoods that are most similar to the one in question, based on the features selected (like walkability, transit accessibility, etc.). Similarity is usually measured using distance metrics, such as Euclidean distance. The idea is that neighborhoods with similar features are likely to have similar crime rates.
+[Project Proposal](https://xfliang.notion.site/Final-Proposal-e08b2c8a118d4fd19747bded1c87b7df)  
 
-💻 Once the k nearest neighbors are identified, the algorithm predicts the crime rate for the neighborhood in question by aggregating the crime rates of these neighbors. This aggregation could be a simple average or a weighted average, where more similar neighbors have a greater influence on the prediction. Time is also such a crucial factor in predicting crime rates, as crime patterns can vary significantly by season, month, or even time of day. The model might include time as a feature by categorizing data points into time slots (e.g., night, day, weekend) and considering the historical crime rates for these periods. Other dynamic factors, like changes in socioeconomic conditions or transit options, can also be periodically updated in the dataset to improve prediction accuracy.
+---
 
-> --> Scikit learn documentation for the KNN Classifier: https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html
+## Methodology  
 
-So, **is using machine learning algorithms to predict and forecast crimes feasible?** 
-- **Clone the repo**: Use `git clone` to copy this repository to your local machine.
-  
-  ```bash
-  git clone https://github.com/kfukutom/urban-informatics.git
+### Data Collection and Preprocessing  
+The dataset includes:  
+- Historical crime and arrest data by neighborhood  
+- Walkability scores and transit accessibility  
+- Socioeconomic indicators (income, education, employment rates)  
+
+### Modeling  
+We employed the k-Nearest Neighbors (k-NN) algorithm to predict crime and arrest rates.  
+
+#### Key Steps:  
+1. **Feature Engineering**  
+   Selected relevant variables such as time (season, day/night), socioeconomic factors, and neighborhood accessibility.  
+
+2. **Model Training**  
+   - Similarity between neighborhoods determined via Euclidean distance.  
+   - Predicted crime rates based on aggregated data from similar neighborhoods.  
+
+3. **Prediction**  
+   Utilized time-categorized data to capture seasonal and temporal crime trends for enhanced accuracy.  
+
+> **More Info:**  
+> [Scikit-learn k-NN Documentation](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+
+---
+
+## Visualizations  
+
+![k-NN Analysis](/additional/kNearNeigh.gif)  
+Visualizing the k-NN algorithm's application to neighborhood crime prediction.
+
+---
+
+## Feasibility and Next Steps  
+This project demonstrates the feasibility of using machine learning for predictive policing while highlighting systemic challenges. Future iterations will integrate real-time data and additional dynamic factors, such as changing transit networks or economic trends, to refine predictions.
+
+---
+
+## Repository Usage  
+
+### Clone the Repository  
+```bash
+git clone https://github.com/kfukutom/urban-informatics.git
